@@ -1,0 +1,33 @@
+<h1>Formulario</h1>
+<h1>Consecionario</h1>
+<form (ngSubmit)="onRegister()" #formRegister="ngForm">
+  <div class="input-group">
+    <label for="name">Nombre</label>
+    <input type="text" name="name" required id="name" [(ngModel)]="register.name">
+    <p>Mensajes de error</p>
+  </div>
+  <div class="input-group">
+    <label for="name">Email</label>
+    <input type="email" name="email" required id="email" [(ngModel)]="register.email">
+    <p>Mensajes de error</p>
+  </div>
+  <div class="input-group">
+    <label for="name">Password</label>
+    <input type="password" name="password" required id="password" [(ngModel)]="register.password">
+    <p>Mensajes de error</p>
+  </div>
+  <button [disabled]="formRegister.invalid" type="submit">Registrar</button>
+</form>
+<div class="products--grid">
+  <div *ngFor="let product of products">
+    <img [src]="product.image" alt="image">
+    <h1>{{product.name}}</h1>
+    <h1>{{product.describe}}</h1>
+    <h1>{{product.price}}</h1>
+
+  </div>
+</div>
+
+<hr/>
+
+
