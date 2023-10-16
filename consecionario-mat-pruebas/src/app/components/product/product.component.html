@@ -1,5 +1,24 @@
 
-<img width="200px" [src]="product.image" alt="">
-<h2>{{product.name}}</h2>
-<h2>{{product.price}}</h2>
-<h3>{{product.describe}}</h3>
+<div class="FiltroMarcaPrecio">
+  <div class="precio">
+    <input type="numer" placeholder="">
+
+  </div>
+
+  <div class="Marca">
+
+  </div>
+
+</div>
+<div class="item">
+      <img [src]="product.image" alt="image" class="item-img">
+    <div class="item-text">
+      <h2>{{product.name}}</h2>
+      <h2>Marca: {{product.marca}}</h2>
+      <p>Precio: {{product.price}} cop</p>
+      <p>descripción: {{product.describe}}</p>
+    </div>
+</div>
+
+
+

@@ -1,6 +1,12 @@
+<app-login></app-login>
+<app-register></app-register>
+<app-contact></app-contact>
 <app-nav></app-nav>
+<button (click)="getInfoPrecio(187900000)">calcular</button>
+<div class="products--grid">
+<app-product [product]="product" *ngFor="let product of products"></app-product>
+</div>
 
-<app-product></app-product>
-<p><input type="text" [(ngModel)]="imgParent"></p>
-<app-img (loaded)="onLoaded($event)" [img]="imgParent"></app-img>
+
+
 
