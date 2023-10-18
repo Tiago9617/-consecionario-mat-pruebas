@@ -17,7 +17,7 @@ export class ProductComponent {
     marca: ''
   }
 
-  public products: Product[] = [
+ /* public products: Product[] = [
 
     {
     image:'./assets/Images//BMW/cosySec(2).jpg',
@@ -109,6 +109,6 @@ export class ProductComponent {
 
     })
 
-  }
+  }*/
 
 }

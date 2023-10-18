@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import {Product} from './models/product.model';
 @Component({
@@ -8,6 +9,9 @@ import {Product} from './models/product.model';
 })
 export class AppComponent {
 
+  minPrice: number = 0;
+  maxPrice: number = 0;
+  mostrarFiltro = true;
   public products: Product[] = [
 
     {
@@ -89,6 +93,7 @@ export class AppComponent {
     marca: "Porche"
   },
 ];
+public FilterProducts: Product[] = []
 
   imgParent='';
 
@@ -108,22 +113,25 @@ export class AppComponent {
     return marca2;
   }
 
-  public getInfoPrecio(precio: number = 0){
+  public getInfoPrecio(minPrice: number, maxPrice: number){
 
-    const precio2 = this.products.filter( (productObject) => {
-      return productObject.price == precio
+    this.FilterProducts = this.products.filter(producto => producto.price >= minPrice && producto.price <= maxPrice);
+    this.mostrarFiltro = false;
+  }
 
-    })
+  public LimpiarFiltro(){
+      this.minPrice = 0;
+      this.maxPrice = 0;
+      this.FilterProducts = [];
+      this.mostrarFiltro = true;
 
-    console.log(precio2);
-    this.products = precio2;
   }
 
 }
 
 const prueba = new AppComponent();
 //prueba.getInfoMarca("BMW");
-prueba.getInfoPrecio(187900000);
+prueba.getInfoPrecio(187900000, 800000000);
 console.log(prueba.products)
 
 
