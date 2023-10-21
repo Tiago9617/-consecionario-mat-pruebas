@@ -1,0 +1,13 @@
+<div class="carrito-container">
+  <h2>Mi Carrito</h2>
+  <ul>
+    <!-- Aquí se listarían los productos en el carrito -->
+    <li *ngFor="let producto of productosEnCarrito">
+      {{ producto.nombre }} - {{ producto.precio }}$
+    </li>
+  </ul>
+  <div class="total">
+    Total: {{ total }}$
+  </div>
+  <button>Proceder al pago</button>
+</div>

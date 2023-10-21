@@ -1,0 +1,37 @@
+<p>Cantidad de productos: {{productsUser.length}}</p>
+<p>Valor: {{total}}</p>
+<div class="FiltroMarcaPrecio">
+  <div class="precio">
+    <label for="">Precio</label>
+    <input type="numer" placeholder="70.000.000" [(ngModel)]="minPrice" value="">
+    <input type="numer" placeholder="800.000.000" [(ngModel)]="maxPrice" value="">
+
+  </div>
+
+  <div class="Marca">
+    <label for="">Marca</label>
+    <input type="checkbox" value="KIA">
+    <label for="">KIA</label>
+    <input type="checkbox" value="BMW">
+    <label for="">BMW</label>
+    <input type="checkbox" value="PORCHE">
+    <label for="">PORCHE</label>
+
+  </div>
+  <button (click)="getInfoPrecio(minPrice,maxPrice)">calcular</button>
+  <button (click)="LimpiarFiltro()">Limpiar</button>
+</div>
+<div class="products--grid" *ngIf="mostrarFiltro; else filtro">
+  <app-product [product]="product" *ngFor="let product of products"
+  (addedProduct)="onAddToShoppingcart($event)"></app-product>
+</div>
+
+
+
+<ng-template #filtro>
+  <div class="products--grid">
+    <app-product [product]="product"
+    *ngFor="let product of FilterProducts"
+    (addedProduct)="onAddToShoppingcart($event)"></app-product>
+  </div>
+</ng-template>
