@@ -1,11 +1,4 @@
 
-img{
-  height: 250px;
-  width: 100%;
-
-  border-radius: 10px;
-  margin-top: 10%;
-}
 H3,h2, p{
 margin: 0;
 color: white;
@@ -13,9 +6,9 @@ color: white;
 
 .item{
 
-  background-color: #FA010A;
+  background-color: #3498DB ;
   /*cursor: pointer;*/
-  box-shadow: 0 0 20px 0 #FA010A;
+  box-shadow: 0 0 20px 0 #3498DB ;
   border-radius: 10px;
 }
 
@@ -43,4 +36,24 @@ color: white;
   display: grid;
   /*grid-template-columns: repeat(3, 1fr);*/
   grid-gap: 35px;
+}
+
+/* Estilos para el botón */
+.btn-compra {
+  background-color: #007BFF;  /* Color azul */
+  color: #FFFFFF;            /* Texto blanco */
+  padding: 10px 15px;        /* Espaciado interno */
+  border: none;              /* Sin bordes */
+  border-radius: 5px;        /* Bordes redondeados */
+  cursor: pointer;           /* Cambiar cursor a mano al pasar el mouse */
+  font-size: 16px;           /* Tamaño de letra */
+  transition: background-color 0.3s;  /* Animación al hacer hover */
+}
+
+.btn-compra:hover {
+  background-color: #0056b3;  /* Color azul más oscuro al hacer hover */
+}
+
+.btn-compra i {
+  margin-right: 5px;  /* Espaciado a la derecha del ícono */
 }

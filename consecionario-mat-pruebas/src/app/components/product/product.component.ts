@@ -1,6 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
 import { Product } from 'src/app/models/product.model';
 import { AppComponent } from 'src/app/app.component';
+import {ShoppingCartComponent} from 'src/app/components/shopping-cart/shopping-cart.component'
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-product',
@@ -8,6 +10,7 @@ import { AppComponent } from 'src/app/app.component';
   styleUrls: ['./product.component.scss']
 })
 export class ProductComponent {
+
   @Input() product: Product = {
 
     image: '',
@@ -15,6 +18,15 @@ export class ProductComponent {
     price: 0,
     describe: '',
     marca: ''
+  }
+
+  @Output() addedProduct = new EventEmitter<Product>();
+
+  constructor(private dataservice: DataService){}
+
+  public EnvioProductoCompras(){
+    this.addedProduct.emit(this.product);
+
   }
 
  /* public products: Product[] = [

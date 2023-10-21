@@ -1,39 +1,11 @@
-<app-login></app-login>
-<app-register></app-register>
-<app-contact></app-contact>
+
 <app-nav></app-nav>
-<div class="FiltroMarcaPrecio">
-  <div class="precio">
-    <label for="">Precio</label>
-    <input type="numer" placeholder="70.000.000" [(ngModel)]="minPrice">
-    <input type="numer" placeholder="800.000.000" [(ngModel)]="maxPrice">
-
-  </div>
-
-  <div class="Marca">
-    <label for="">Marca</label>
-    <input type="checkbox" value="KIA" >
-    <label for="">KIA</label>
-    <input type="checkbox" value="BMW">
-    <label for="">BMW</label>
-    <input type="checkbox" value="PORCHE">
-    <label for="">PORCHE</label>
-
-  </div>
-  <button (click)="getInfoPrecio(minPrice,maxPrice)">calcular</button>
-  <button (click)="LimpiarFiltro()">Limpiar</button>
-</div>
+<router-outlet></router-outlet>
 
 
-<div class="products--grid" *ngIf="mostrarFiltro; else filtro">
-  <app-product [product]="product" *ngFor="let product of products"></app-product>
-</div>
 
-  <ng-template #filtro >
-    <div class="products--grid">
-      <app-product [product]="product" *ngFor="let product of FilterProducts"></app-product>
-    </div>
-  </ng-template>
+<app-products></app-products>
+
 
 
 

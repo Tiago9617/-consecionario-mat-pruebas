@@ -10,6 +10,10 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ProductComponent } from './components/product/product.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { ProductsComponent } from './components/products/products.component';
+
 
 @NgModule({
   declarations: [
@@ -19,12 +23,16 @@ import { ProductComponent } from './components/product/product.component';
     RegisterComponent,
     LoginComponent,
     ContactComponent,
-    ProductComponent
+    ProductComponent,
+    ShoppingCartComponent,
+    ProductsComponent
+
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
 
 
   ],
