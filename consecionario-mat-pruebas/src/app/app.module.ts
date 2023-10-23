@@ -13,6 +13,7 @@ import { ProductComponent } from './components/product/product.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { ProductsComponent } from './components/products/products.component';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { ProductsComponent } from './components/products/products.component';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
 
 
   ],

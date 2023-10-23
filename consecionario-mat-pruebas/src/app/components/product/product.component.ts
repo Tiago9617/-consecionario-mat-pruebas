@@ -13,6 +13,7 @@ export class ProductComponent {
 
   @Input() product: Product = {
 
+
     image: '',
     name: '',
     price: 0,
