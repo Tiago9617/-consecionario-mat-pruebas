@@ -33,7 +33,8 @@ constructor(
 ngOnInit(): void {
   this.productsUser = this.dataService.getProductsUser();
   this.productsService.getAllProducts().subscribe(data => {
-    console.log();
+    this.products = data;
+
   });
 }
 
@@ -54,7 +55,12 @@ public getInfoPrecio(minPrice: number, maxPrice: number){
     this.LimpiarFiltro();
 
   }else{
-    this.FilterProducts = this.products.filter(producto => producto.price >= minPrice && producto.price <= maxPrice);
+
+    this.productsService.getFilterByPrice(minPrice, maxPrice).subscribe(data => {
+      this.FilterProducts = data;
+      console.log(data);
+    });
+    //this.FilterProducts = this.products.filter(producto => producto.price >= minPrice && producto.price <= maxPrice);
     this.mostrarFiltro = false;
   }
 

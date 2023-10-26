@@ -18,9 +18,6 @@ export class ImgComponent {
 
   }
 
-  imgLoaded(){
-    console.log('Log Hijo')
-    this.loaded.emit(this.img);
-  }
+
 
 }

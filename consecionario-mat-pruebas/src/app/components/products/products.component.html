@@ -10,16 +10,15 @@
   </div>
 
   <div class="Marca">
-    <p>Marca </p>
-
-    <p><input type="checkbox" value="KIA">KIA</p>
-
-    <p><input type="checkbox" value="BMW">BMW</p>
-
-    <p><input type="checkbox" value="PORCHE">PORCHE</p>
-
-
-  </div>
+    <p>Marca</p>
+    <ul>
+        <li><label><input type="checkbox" value="KIA"> KIA</label></li>
+        <li><label><input type="checkbox" value="BMW"> BMW</label></li>
+        <li><label><input type="checkbox" value="PORSCHE"> PORSCHE</label></li>
+    </ul>
+    <button onclick="calcular()">Calcular</button>
+    <button onclick="limpiarFiltros()">Limpiar Filtros</button>
+</div>
 
 </div>
 <div class="products--grid" *ngIf="mostrarFiltro; else filtro">
