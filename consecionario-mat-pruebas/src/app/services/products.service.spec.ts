@@ -25,7 +25,7 @@ fdescribe('ProductsService', () => {
     httpMock.verify(); // Verificar que no hay peticiones pendientes
   });
   //Todos los productos
- /* it('deberia traer todos los productos ', () => {
+  it('deberia traer todos los productos ', () => {
 
     const products: Product[] = [
       {
@@ -99,9 +99,10 @@ fdescribe('ProductsService', () => {
     const req = httpMock.expectOne('/api/cars');
     expect(req.request.method).toBe('GET');
     req.flush(products);
-  });*/
+  });
   it('no deberia traer datos para el rango de '+' -'+1+'y '+2000000000, () => {
-    const product:Product[] = []
+
+    const product: Product[] = [];
     service.getFilterByPrice(-1,2000000000).subscribe(data => {
       expect(data).toEqual(product);
     });
@@ -183,7 +184,7 @@ fdescribe('ProductsService', () => {
     expect(req.request.method).toBe('GET');
     req.flush(products);
   });
-  /*it('deberia traer todos los productos KIA '+76290000+' y'+97490000, () => {
+  it('deberia traer todos los productos KIA '+76290000+' y'+97490000, () => {
     const product:Product[] = [{
       image: "./assets/Images/KIA/KIAStonic.jpg",
       name: "Kia Stonic",
@@ -204,7 +205,7 @@ fdescribe('ProductsService', () => {
       price: 97490000,
       describe: "Motor a combustion",
       marca: "Kia"
-    }]
+    }];
     service.getFilterByPrice(76290000,97490000).subscribe(data => {
       expect(data).toEqual(product);
     });
@@ -212,8 +213,8 @@ fdescribe('ProductsService', () => {
     const req = httpMock.expectOne('/api/search?initialPrice=76290000&finalPrice=97490000');
     expect(req.request.method).toBe('GET');
     req.flush(product);
-  });*/
-  /*it('no deberia traerme ningun producto '+2000+' y'+2000000001, () => {
+  });
+  it('no deberia traerme ningun producto '+2000+' y'+2000000001, () => {
       const product:Product[] = []
       service.getFilterByPrice(2000,2000000001).subscribe(data => {
         expect(data).toEqual(product);
@@ -222,8 +223,8 @@ fdescribe('ProductsService', () => {
       const req = httpMock.expectOne('/api/search?initialPrice=2000&finalPrice=2000000001');
       expect(req.request.method).toBe('GET');
       req.flush(product);
-  });*/
-  /*it('no deberia traerme ningun producto '+0+' y'+0, () => {
+  });
+  it('no deberia traerme ningun producto '+0+' y'+0, () => {
     const product:Product[] = []
     service.getFilterByPrice(0,0).subscribe(data => {
       expect(data).toEqual(product);
@@ -232,8 +233,8 @@ fdescribe('ProductsService', () => {
     const req = httpMock.expectOne('/api/search?initialPrice=0&finalPrice=0');
     expect(req.request.method).toBe('GET');
     req.flush(product);
-  });*/
-  /*it('no deberia traerme ningun producto '+2000000000+' y'+2000000000, () => {
+  });
+  it('no deberia traerme ningun producto '+2000000000+' y'+2000000000, () => {
     const product:Product[] = []
     service.getFilterByPrice(2000000000,2000000000).subscribe(data => {
       expect(data).toEqual(product);
@@ -242,8 +243,8 @@ fdescribe('ProductsService', () => {
     const req = httpMock.expectOne('/api/search?initialPrice=2000000000&finalPrice=2000000000');
     expect(req.request.method).toBe('GET');
     req.flush(product);
-  });*/
-  /*it('no deberia traerme ningun producto '+1001+' y'+1000, () => {
+  });
+  it('no deberia traerme ningun producto '+1001+' y'+1000, () => {
     const product:Product[] = []
     service.getFilterByPrice(1001,1000).subscribe(data => {
       expect(data).toEqual(product);
@@ -252,8 +253,8 @@ fdescribe('ProductsService', () => {
     const req = httpMock.expectOne('/api/search?initialPrice=1001&finalPrice=1000');
     expect(req.request.method).toBe('GET');
     req.flush(product);
-  });*/
-  /*it('no deberia traerme ningun producto '+0+' y'+'-'+1, () => {
+  });
+  it('no deberia traerme ningun producto '+0+' y'+'-'+1, () => {
     const product:Product[] = []
     service.getFilterByPrice(0,-1).subscribe(data => {
       expect(data).toEqual(product);
@@ -262,8 +263,8 @@ fdescribe('ProductsService', () => {
     const req = httpMock.expectOne('/api/search?initialPrice=0&finalPrice=-1');
     expect(req.request.method).toBe('GET');
     req.flush(product);
-  });*/
-  /*it('no deberia traerme ningun producto '+' -'+1+' y'+ 2000000001, () => {
+  });
+  it('no deberia traerme ningun producto '+' -'+1+' y'+ 2000000001, () => {
     const product:Product[] = []
     service.getFilterByPrice(0,-1).subscribe(data => {
       expect(data).toEqual(product);
@@ -272,5 +273,5 @@ fdescribe('ProductsService', () => {
     const req = httpMock.expectOne('/api/search?initialPrice=0&finalPrice=-1');
     expect(req.request.method).toBe('GET');
     req.flush(product);
-  });*/
+  });
 });
