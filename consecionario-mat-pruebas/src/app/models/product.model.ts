@@ -6,3 +6,9 @@ export interface Product{
   describe: string;
   marca: string
 }
+
+export interface MarcasSeleccionadas {
+  KIA: boolean;
+  BMW: boolean;
+  PORSCHE: boolean
+}

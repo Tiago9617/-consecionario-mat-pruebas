@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms';
 import {MatDialog, MAT_DIALOG_DATA, MatDialogModule} from '@angular/material/dialog';
 import {NgIf} from '@angular/common';
 import {MatButtonModule} from '@angular/material/button';
-import { Product } from 'src/app/models/product.model';
+import { Product, MarcasSeleccionadas } from 'src/app/models/product.model';
 import { DataService } from '../services/data.service';
 import { ProductsService } from 'src/app/services/products.service';
 
@@ -17,6 +17,11 @@ export class ProductsComponent {
   public FilterProductsMarca: Product[] = []
   public productsUser: Product[] = [];
   public products: Product[] = [];
+  marcasSeleccionadas: MarcasSeleccionadas = {
+    KIA: false,
+    BMW: false,
+    PORSCHE: false
+  };
 total = 0;
 
 minPrice: number = 76290000;
@@ -34,42 +39,45 @@ ngOnInit(): void {
   this.productsUser = this.dataService.getProductsUser();
   this.productsService.getAllProducts().subscribe(data => {
     this.products = data;
+    console.log("Todos los productos desde el backend", data)
 
   });
 }
 
-public getInfoMarca(marca: string = ""){
-
-  this.FilterProductsMarca = this.products.filter( (productObject) => {
-    return productObject.marca == marca
-
-  })
-
-
+public getInfoMarca(){
+  if(this.marcasSeleccionadas.KIA === true
+    && this.marcasSeleccionadas.BMW === true
+    && this.marcasSeleccionadas.PORSCHE === true){
+      this.limpiarFiltro();
+    }else{
+      this.productsService.getBrands(this.marcasSeleccionadas)?.subscribe(data => {
+        this.FilterProducts = data;
+        console.log("datos filtrados desde el backend por marca",data);
+      });
+      this.mostrarFiltro = false;
+    }
 
 }
 
 public getInfoPrecio(minPrice: number, maxPrice: number){
 
-  if(minPrice < 76290000 || maxPrice > 770000000){
-    this.LimpiarFiltro();
-
+  if(minPrice < 0 || maxPrice > 2000000000){
+    this.limpiarFiltro();
+    console.log("entre")
   }else{
-
     this.productsService.getFilterByPrice(minPrice, maxPrice).subscribe(data => {
       this.FilterProducts = data;
-      console.log(data);
+      console.log("datos filtrados desde el backend por precio",data);
     });
     //this.FilterProducts = this.products.filter(producto => producto.price >= minPrice && producto.price <= maxPrice);
     this.mostrarFiltro = false;
   }
-
-
 }
 
-public LimpiarFiltro(){
-    this.minPrice = 0;
-    this.maxPrice = 0;
+public limpiarFiltro(){
+
+    this.minPrice = 76290000;
+    this.maxPrice = 770000000;
     this.FilterProducts = [];
     this.mostrarFiltro = true;
 

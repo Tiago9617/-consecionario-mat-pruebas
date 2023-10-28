@@ -6,18 +6,18 @@
     <input type="numer" placeholder="70.000.000" [(ngModel)]="minPrice" value="">
     <input type="numer" placeholder="800.000.000" [(ngModel)]="maxPrice" value="">
     <button (click)="getInfoPrecio(minPrice,maxPrice)">calcular</button>
-    <button (click)="LimpiarFiltro()">Limpiar</button>
+    <button (click)="limpiarFiltro()">Limpiar</button>
   </div>
 
   <div class="Marca">
     <p>Marca</p>
     <ul>
-        <li><label><input type="checkbox" value="KIA"> KIA</label></li>
-        <li><label><input type="checkbox" value="BMW"> BMW</label></li>
-        <li><label><input type="checkbox" value="PORSCHE"> PORSCHE</label></li>
+        <li><label><input type="checkbox" value="KIA" [(ngModel)]="marcasSeleccionadas.KIA" id="kia"> KIA</label></li>
+        <li><label><input type="checkbox" value="BMW" [(ngModel)]="marcasSeleccionadas.BMW" id="BMW"> BMW</label></li>
+        <li><label><input type="checkbox" value="PORSCHE" [(ngModel)]="marcasSeleccionadas.PORSCHE" id="porche"> PORSCHE</label></li>
     </ul>
-    <button onclick="calcular()">Calcular</button>
-    <button onclick="limpiarFiltros()">Limpiar Filtros</button>
+    <button (click)="getInfoMarca()">Calcular</button>
+    <button (click)="limpiarFiltro()">Limpiar Filtros</button>
 </div>
 
 </div>
